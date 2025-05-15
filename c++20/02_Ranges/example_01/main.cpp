@@ -2,6 +2,7 @@
 #include <vector>
 #include <ranges>
 #include <chrono>
+#include <string>
 
 int main() {
     std::vector<int> numbers(1'000'000);
