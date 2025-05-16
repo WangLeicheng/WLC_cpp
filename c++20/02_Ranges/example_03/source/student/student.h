@@ -1,36 +1,23 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
+#include "people.h"
+
 #include <iostream>
 #include <string>
 
-class Student {
+class Student : public People {
 public:
+    using People::People;       // Inherit constructors
     Student() = delete;
-    ~Student() = default;
 
-    Student(const std::string& name, const char* nickname);
-    Student(const std::string& name, const char* nickname, int age);
+    std::string getRole() const override;
+    void printInfo(std::ostream& os) const override;
 
-    Student(const Student& other);
-    Student& operator=(const Student& other);
 
-    Student(Student&& other) noexcept;
-    Student& operator=(Student&& other) noexcept;
-
-    std::string getName() const;
-    int getAge() const;
-
-    friend std::ostream& operator<<(std::ostream& os, const Student& s);
     bool operator<(const Student& s);
     bool operator>(const Student& s);
     bool operator==(const Student& s);
-
-
-private:
-    std::string m_Name;
-    int m_Age;
-    char* m_Nickname;
 };
 
 
