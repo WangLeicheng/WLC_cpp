@@ -1,10 +1,10 @@
-#include "student.h"
+#include "teacher.h"
 
 #include <cstring>      // For std::strlen
 #include <iomanip>      // For the std::quoted
 
 
-Student::Student(const std::string& name, const char* nickname)
+Teacher::Teacher(const std::string& name, const char* nickname)
     :m_Name(name), m_Age(0)
 {
     if (nickname) {
@@ -16,7 +16,7 @@ Student::Student(const std::string& name, const char* nickname)
     }
 }
 
-Student::Student(const std::string& name, const char * nickname, int age)
+Teacher::Teacher(const std::string& name, const char * nickname, int age)
     :m_Name(name), m_Age(age)
 {
     if (nickname) {
@@ -29,7 +29,7 @@ Student::Student(const std::string& name, const char * nickname, int age)
 }
 
 // ✅ Copy constructor (deep copy)
-Student::Student(const Student& other)
+Teacher::Teacher(const Teacher& other)
     :m_Name(other.m_Name), m_Age(other.m_Age)
 {
 
@@ -43,7 +43,7 @@ Student::Student(const Student& other)
 }
 
 // ✅ Copy assignment operator (deep copy)
-Student& Student::operator=(const Student& other)
+Teacher& Teacher::operator=(const Teacher& other)
 {
     if (this != &other) {
         m_Name = other.m_Name;
@@ -65,7 +65,7 @@ Student& Student::operator=(const Student& other)
 
 
 // ✅ Move constructor
-Student::Student(Student&& other) noexcept
+Teacher::Teacher(Teacher&& other) noexcept
     : m_Name(std::move(other.m_Name)),
     m_Age(std::move(other.m_Age)),
     m_Nickname(other.m_Nickname) 
@@ -74,7 +74,7 @@ Student::Student(Student&& other) noexcept
 }
 
 // ✅ Move assignment
-Student& Student::operator=(Student&& other) noexcept {
+Teacher& Teacher::operator=(Teacher&& other) noexcept {
     if (this != &other) {
         m_Name = std::move(other.m_Name);
         m_Age = std::move(other.m_Age);
@@ -86,32 +86,32 @@ Student& Student::operator=(Student&& other) noexcept {
     return *this;
 }
 
-std::string Student::getName() const
+std::string Teacher::getName() const
 {
     return m_Name;
 }
 
-int Student::getAge() const 
+int Teacher::getAge() const 
 {
     return m_Age;
 }
 
-std::ostream& operator<<(std::ostream& os, const Student& s) 
+std::ostream& operator<<(std::ostream& os, const Teacher& s) 
 {
-    return os << "[STUDENT; name: " << std::quoted(s.getName()) << ";age: " << s.getAge()<< ";]";
+    return os << "[TEACHER; name: " << std::quoted(s.getName()) << ";age: " << s.getAge()<< ";]";
 }
 
-bool Student::operator<(const Student& s2)
+bool Teacher::operator<(const Teacher& s2)
 {
     return m_Age < s2.getAge();
 }
 
-bool Student::operator>(const Student& s2)
+bool Teacher::operator>(const Teacher& s2)
 {
     return m_Age > s2.getAge();
 }
 
-bool Student::operator==(const Student& s2)
+bool Teacher::operator==(const Teacher& s2)
 {
     return m_Age == s2.getAge();
 }

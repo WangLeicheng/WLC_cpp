@@ -3,14 +3,16 @@ TARGET = app
 
 # Compiler
 CXX = g++
-CXXFLAGS = -std=c++20 -Wall -Wextra -I./source/student
+CXXFLAGS = -std=c++20 -Wall -Wextra -I./source/student -I./source/teacher
 
 # Source files
 SRCDIR = source
 STUDENTDIR = $(SRCDIR)/student
+TEACHERDIR = $(SRCDIR)/teacher
 
 SRC = $(SRCDIR)/main.cpp \
-      $(STUDENTDIR)/student.cpp
+      $(STUDENTDIR)/student.cpp	\
+      $(TEACHERDIR)/teacher.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
