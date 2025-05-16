@@ -104,3 +104,30 @@ std::string People::getNickname() const
 {
     return m_Nickname;
 }
+
+bool People::operator<(const People& other) const
+{
+    if (getRole() != other.getRole()) {
+        return getRole() == "STUDENT";
+    }
+
+    return m_Age < other.getAge();
+}
+
+bool People::operator>(const People& other) const
+{
+    if (getRole() != other.getRole()) {
+        return getRole() == "TEACHERa";
+    }
+
+    return m_Age > other.getAge();
+}
+
+bool People::operator==(const People& other) const
+{
+    if (getRole() != other.getRole()) {
+        return false;
+    }
+
+    return m_Age == other.getAge();
+}

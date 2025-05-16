@@ -22,6 +22,10 @@ public:
     int getAge() const;
     std::string getNickname() const;
 
+    bool operator<(const People& other) const;
+    bool operator>(const People& other) const;
+    bool operator==(const People& other) const;
+
     // Abstract interface
     virtual std::string getRole() const = 0;
     virtual void printInfo(std::ostream& os) const = 0;

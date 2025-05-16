@@ -16,18 +16,3 @@ void Student::printInfo(std::ostream& os) const
     }
     os << "]";
 }
-
-bool Student::operator<(const Student& s2)
-{
-    return m_Age < s2.getAge();
-}
-
-bool Student::operator>(const Student& s2)
-{
-    return m_Age > s2.getAge();
-}
-
-bool Student::operator==(const Student& s2)
-{
-    return m_Age == s2.getAge();
-}

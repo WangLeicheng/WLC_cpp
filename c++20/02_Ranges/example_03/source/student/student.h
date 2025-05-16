@@ -13,11 +13,6 @@ public:
 
     std::string getRole() const override;
     void printInfo(std::ostream& os) const override;
-
-
-    bool operator<(const Student& s);
-    bool operator>(const Student& s);
-    bool operator==(const Student& s);
 };
 
 
