@@ -31,13 +31,25 @@ struct Generator {
 };
 
 Generator counter() {
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 100; ++i)
         co_yield i;
 }
 
 int main() {
     auto gen = counter();
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 3; ++i) {
         std::cout << gen.next() << '\n';
+    }
+
+    for (int i = 0; i < 3; ++i) {
+        std::cout << gen.next() << '\n';
+    }
+
+    auto gen2 = counter();
+    for (int i = 0; i < 9; ++i) {
+        std::cout << gen2.next() << '\n';
+    }
+
+    return 0;
 }
 
